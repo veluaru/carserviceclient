@@ -6,7 +6,12 @@
                     <mat-list>
                         <mat-list-item>
                             <h3 mat-line>
+                                <input type="checkbox" value="" id="{{owner.dni}}" (click)=addDeleteOwnersArray(owner._links.self.href)>
+                                <a>{{owner.dni}}</a>
+                                <br>
                                 <a mat-button [routerLink]="['/owner-edit', owner.dni]">{{owner.name}}</a>
+                                <br>
+                                <a>{{owner.profession}}</a>
                             </h3>
                         </mat-list-item>
                     </mat-list>
@@ -17,3 +22,4 @@
 </table>
 
 <button class="button" mat-fab color="primary" [routerLink]="['/owner-add']">Add</button>
+<button class="button" mat-fab color="primary" (click)=deleteOwners()>Delete</button>
