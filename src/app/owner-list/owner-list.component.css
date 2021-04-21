@@ -3,25 +3,28 @@
     flex-wrap: wrap;
     list-style: none;
     margin: auto;
+    margin-bottom: 10px;
     padding: 1rem;
-    background: linear-gradient(to bottom left, #bbcff5 40%, #f9fdff 100%);
-    max-width: 200px;
-    max-height: 200;
+    background: linear-gradient(to bottom left, #e7e9ec 40%, #f9fdff 100%);
+    max-width: 300px;
+    height: 80px;
   }
-  .cardsTitle {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: auto;
-    padding: 1rem;
-    background: linear-gradient(to bottom left, #d1cfcf 40%, #f9fdff 100%);
-    max-width: 200px;
-    max-height: 150;
-  }
+
   .button {
-      margin: 5px;
+      margin: 15px;
   }
   .title {
       border: 1;
+  }
+
+  table{
+    width:100%;
+  }
+  td:nth-child(3) {
+    display: block;
+  }
+  tr td {
+      float: left;
+      width: 49.5%;
   }
 

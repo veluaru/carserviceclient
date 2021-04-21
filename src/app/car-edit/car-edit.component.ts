@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarService } from '../shared/car/car.service';
+import { OwnerService } from '../shared/owner/owner.service';
 import { GiphyService } from '../shared/giphy/giphy.service';
 import { NgForm } from '@angular/forms';
 
@@ -11,13 +12,15 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./car-edit.component.css']
 })
 export class CarEditComponent implements OnInit, OnDestroy {
-  car: any = {};
 
+  car: any = {};
   sub: Subscription;
+  ownersArray: Array<any>;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private carService: CarService,
+              private ownerService: OwnerService,
               private giphyService: GiphyService) {
   }
 
@@ -37,6 +40,9 @@ export class CarEditComponent implements OnInit, OnDestroy {
         });
       }
     });
+    this.ownerService.getAll().subscribe(data => {
+      this.ownersArray = data._embedded.owners;
+    });
   }
 
   ngOnDestroy() {
@@ -48,6 +54,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
   }
 
   save(form: NgForm) {
+    console.log(form);
     this.carService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
@@ -58,5 +65,6 @@ export class CarEditComponent implements OnInit, OnDestroy {
       this.gotoList();
     }, error => console.error(error));
   }
+
 }
 
