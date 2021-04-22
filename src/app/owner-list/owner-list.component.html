@@ -1,0 +1,30 @@
+    <table>
+        <tr>
+            <td *ngFor="let owner of owners">
+                <mat-card class="cards">
+                    <mat-card-content>
+                        <mat-list>
+                            <mat-list-item>
+                                <h3 mat-line>
+                                    <div>
+                                        <input type="checkbox" value="" id="{{owner.dni}}"
+                                            (click)=addDeleteOwnersArray(owner._links.self.href)>
+
+                                        <a mat-button [routerLink]="['/owner-edit', owner.dni]">Name: {{owner.name}}</a>
+                                    </div>
+                                    <div>
+                                        <a>Dni: {{owner.dni}}</a>
+                                    </div>
+                                    <div>
+                                        <a>Profession: {{owner.profession}}</a>
+                                    </div>
+                                </h3>
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-card-content>
+                </mat-card>
+            </td>
+        </tr>
+    </table>
+<button class="button" mat-fab color="primary" [routerLink]="['/owner-add']">Add</button>
+<button class="button" mat-fab color="primary" (click)=deleteOwners()>Delete</button>

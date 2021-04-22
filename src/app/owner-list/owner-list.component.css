@@ -10,23 +10,21 @@
     height: 80px;
   }
 
-.button {
-    margin: 15px;
-}
+  .button {
+      margin: 15px;
+  }
+  .title {
+      border: 1;
+  }
 
-.marginDni {
-  margin-left: 16px;
-}
+  table{
+    width:100%;
+  }
+  td:nth-child(3) {
+    display: block;
+  }
+  tr td {
+      float: left;
+      width: 49.5%;
+  }
 
-table{
-  width:100%;
-}
-
-td:nth-child(3) {
-  display: block;
-}
-
-tr td {
-    float: left;
-    width: 49.5%;
-}
